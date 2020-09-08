@@ -1,4 +1,6 @@
 from mycroft import MycroftSkill, intent_file_handler
+import datetime, urllib.request, urllib.error, urllib.parse, json, time, calendar
+from decimal import *
 
 def report_pull(spotName,spotID,regionalID,statezip):
     surflinewavesbase="http://services.surfline.com/kbyg/spots/forecasts/conditions?spotId=00000&6&maxHeights=false"
