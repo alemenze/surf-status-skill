@@ -35,7 +35,7 @@ class SurfStatus(MycroftSkill):
         waverateam=report['data']['conditions'][0]['am']['rating']
         waveratepm=report['data']['conditions'][0]['pm']['rating']
         if waverateam==waveratepm:
-            waverateoutput=waverateam.replace('_',' ')
+            waverateoutput='The rating for the waves all day will be '+waverateam.replace('_',' ')
         else:
             waverateoutput='The rating will start at '+waverateam.replace('_',' ')+'  in the morning and shift to '+waveratepm.replace('_',' ')+' in the afternoon'
 
