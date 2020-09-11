@@ -23,7 +23,21 @@ class SurfStatus(MycroftSkill):
         # Eventually need to expand to be flexible. 
         report=report_pull('Belmar','5842041f4e65fad6a7708a01','2147','NJ/07715')
         output=report['data']['conditions'][0]['observation']
+        waveminam=report['data']['conditions'][0]['am']['minHeight']
+        wavemaxam=report['data']['conditions'][0]['am']['maxHeight']
+        waveminpm=report['data']['conditions'][0]['pm']['minHeight']
+        wavemaxpm=report['data']['conditions'][0]['pm']['maxHeight']
+        wavesum='The waves will range from '+waveminam+' feet to '+wavemaxam+' feet in the morning, and will range from '+waveminpm+' feet to '+wavemaxpm+' feet in the afternoon'
+        waverateam=report['data']['conditions'][0]['am']['rating']
+        waveratepm=report['data']['conditions'][0]['pm']['rating']
+        if waverateam==waveratepm:
+            waverateoutput=waverateam.replace('_',' ')
+        else:
+            waverateoutput='The rating will start at '+warerateam.replace('_',' ')+'  in the morning and shift to '+waveratepm.replace('_',' ')+' in the afternoon'
+
         self.speak(str(output))
+        self.speak(str(wavesum))
+        self.speak(str(waverateoutput))
         self.speak_dialog('status.surf')
 
 
