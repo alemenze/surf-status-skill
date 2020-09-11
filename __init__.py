@@ -27,7 +27,11 @@ class SurfStatus(MycroftSkill):
         wavemaxam=report['data']['conditions'][0]['am']['maxHeight']
         waveminpm=report['data']['conditions'][0]['pm']['minHeight']
         wavemaxpm=report['data']['conditions'][0]['pm']['maxHeight']
-        wavesum='The waves will range from '+str(waveminam)+' feet to '+str(wavemaxam)+' feet in the morning, and will range from '+str(waveminpm)+' feet to '+str(wavemaxpm)+' feet in the afternoon'
+        
+        if waveminam==waveminpm and wavemaxam==wavemaxpm:
+            wavesum='The waves will range from '+str(waveminam)+' feet to '+str(wavemaxam)+' feet all day'
+        else:
+            wavesum='The waves will range from '+str(waveminam)+' feet to '+str(wavemaxam)+' feet in the morning, and will range from '+str(waveminpm)+' feet to '+str(wavemaxpm)+' feet in the afternoon'
         waverateam=report['data']['conditions'][0]['am']['rating']
         waveratepm=report['data']['conditions'][0]['pm']['rating']
         if waverateam==waveratepm:
