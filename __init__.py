@@ -27,13 +27,13 @@ class SurfStatus(MycroftSkill):
         wavemaxam=report['data']['conditions'][0]['am']['maxHeight']
         waveminpm=report['data']['conditions'][0]['pm']['minHeight']
         wavemaxpm=report['data']['conditions'][0]['pm']['maxHeight']
-        wavesum='The waves will range from '+waveminam+' feet to '+wavemaxam+' feet in the morning, and will range from '+waveminpm+' feet to '+wavemaxpm+' feet in the afternoon'
+        wavesum='The waves will range from '+str(waveminam)+' feet to '+str(wavemaxam)+' feet in the morning, and will range from '+str(waveminpm)+' feet to '+str(wavemaxpm)+' feet in the afternoon'
         waverateam=report['data']['conditions'][0]['am']['rating']
         waveratepm=report['data']['conditions'][0]['pm']['rating']
         if waverateam==waveratepm:
             waverateoutput=waverateam.replace('_',' ')
         else:
-            waverateoutput='The rating will start at '+warerateam.replace('_',' ')+'  in the morning and shift to '+waveratepm.replace('_',' ')+' in the afternoon'
+            waverateoutput='The rating will start at '+waverateam.replace('_',' ')+'  in the morning and shift to '+waveratepm.replace('_',' ')+' in the afternoon'
 
         self.speak(str(output))
         self.speak(str(wavesum))
